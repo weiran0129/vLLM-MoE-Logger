@@ -9,7 +9,9 @@ are selected for each token along with their router weights (e.g. {layer, token_
 
 ## About
 vLLM: A fast and easy-to-use library for LLM inference and serving [Installation](https://blog.vllm.ai/2025/01/10/dev-experience.html) | [Quickstart](https://docs.vllm.ai/en/latest/getting_started/quickstart) | [API](https://docs.vllm.ai/en/stable/api/vllm/model_executor/layers/fused_moe/index.html)
+
 Model: Qwen/Qwen1.5-MoE-A2.7B-Chat (≈14.3B total, 2.7B activated) [Huggin Face](https://huggingface.co/Qwen/Qwen1.5-MoE-A2.7B-Chat)
+
 Prompt Dataset: Use GSM8K test split, first 25 questions [Huggin Face](https://huggingface.co/datasets/openai/gsm8k/tree/main/main)
 
 ## Getting Started
@@ -35,8 +37,9 @@ Baseline run (no logging, compiled kernels)
 unset VLLM_LOG_MOE
 python run_generate.py
 ```
+'time.json' is created, recording generation walltime & number of tokens 
 
-Logging run (with MoE routes), specify the logging MoE layer, where all layer is MoE layer for **Qwen1.5-MoE-A2.7B-Chat**
+Logging run (with MoE routes), specify the logging MoE layer, where all layer (0 - 23) is MoE layer for **Qwen1.5-MoE-A2.7B-Chat**
 ```bash
 export VLLM_MOE_LAYER=12
 export VLLM_LOG_MOE=moe_layer12.jsonl
@@ -45,12 +48,15 @@ export VLLM_MOE_SEED=1234
 
 python run_generate.py
 ```
+'moe_routes.jsonl' (default layer 0) / 'moe_layer12.jsonl' (Other layers) record the per-token expert routing decisions for a single MoE layer, where the first line is a meta header that stores run configuration (model ID, vLLM/torch versions, device, seed, MoE layer , and the router’s top-k), every subsequent line is a route record for one generated token at that layer
 
 Plot expert histogram, visualizing where the router sends work inside the MoE layer.
 ```bash
 python plot_expert_hist.py
 # e.g. output: expert_hist_layer12.png
 ```
+
+## Results
 
 
 
