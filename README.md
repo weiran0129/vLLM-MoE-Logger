@@ -68,5 +68,5 @@ Top-3 handles ~51% of all expert usage (60 experts in total), so the router is c
 We measure entropy (in bits) as $H = -\sum_i p_i \log_2 p_i$, where $p_i$ is the normalized usage for expert $i$.  
 - The **Maximum entropy** for 60 equally used experts is $\log_2(60) \approx 5.91$ bits, our measured entropy is **4.10 bits**, which is about 69% of the maximum, this further proves that usage is concentrated on few experts.
 
-Results can be reproduce using 'eval.ipynb'.
+Results can be reproduce using `eval.ipynb`.
 
