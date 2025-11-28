@@ -58,9 +58,11 @@ python plot_expert_hist.py
 Here is the logging result for default MoE layer 0.
 ![Expert usage histogram](Layer_Experts_Plots/expert_hist_layer0.png)
 Top-3 experts by selection frequency:
-  - Expert 58: 8792 selections (17.17% of all expert uses)
-  - Expert 7: 8758 selections (17.10% of all expert uses)
-  - Expert 43: 8744 selections (17.07% of all expert uses)
+  - **Expert 58**: 8792 selections (17.17% of all expert uses)
+  - **Expert 7**: 8758 selections (17.10% of all expert uses)
+  - **Expert 43**: 8744 selections (17.07% of all expert uses)
+Top-3 handles ~51% of all expert usage (60 experts in total), so the router is clearly biased and only subset of experts and parameters are activated during forward pass. In a perfectly balanced MoE layer (Normalized Distribution), each expert would have 1/60 ≈ 1.67% of the traffic, we are far about this.
+
 
 
 
