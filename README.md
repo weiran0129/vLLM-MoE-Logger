@@ -61,8 +61,17 @@ Top-3 experts by selection frequency:
   - **Expert 58**: 8792 selections (17.17% of all expert uses)
   - **Expert 7**: 8758 selections (17.10% of all expert uses)
   - **Expert 43**: 8744 selections (17.07% of all expert uses)
+
 Top-3 handles ~51% of all expert usage (60 experts in total), so the router is clearly biased and only subset of experts and parameters are activated during forward pass. In a perfectly balanced MoE layer (Normalized Distribution), each expert would have 1/60 ≈ 1.67% of the traffic, we are far about this.
 
+- **Entropy of expert usage**  
+  We measure entropy (in bits) as  
+  \[
+    H = -\sum_i p_i \log_2 p_i,
+  \]  
+  where \(p_i\) is the normalized usage for expert \(i\).  
+  - **Maximum entropy** for 60 equally used experts is \(\log_2(60) \approx 5.91\) bits.  
+  - Our measured entropy is **4.10 bits**, which is about **69% of the maximum**.  
 
 
 
