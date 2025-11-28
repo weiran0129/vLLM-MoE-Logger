@@ -15,9 +15,9 @@ Model: Qwen/Qwen1.5-MoE-A2.7B-Chat (≈14.3B total, 2.7B activated) [Huggin Face
 Prompt Dataset: Use GSM8K test split, first 25 questions [Huggin Face](https://huggingface.co/datasets/openai/gsm8k/tree/main/main)
 
 ## Getting Started
-System used:
+OS: Linux
 
-GPU used:
+GPU: NVIDIA A100 80GB PCIe
 
 vLLM installation
 ```bash
@@ -26,11 +26,14 @@ cd vllm
 export VLLM_USE_PRECOMPILED=1
 pip install -e .
 ```
+
 Data preparation
 ```bash
 python make_prompts.py
 ```
+
 Baseline run (no logging, compiled kernels)
 ```bash
 unset VLLM_LOG_MOE
 python run_generate.py
+```
