@@ -25,11 +25,11 @@ git clone https://github.com/vllm-project/vllm.git
 cd vllm
 export VLLM_USE_PRECOMPILED=1
 pip install -e .
-
+```
 Data preparation
 ```bash
 python make_prompts.py
-
+```
 Baseline run (no logging, compiled kernels)
 ```bash
 unset VLLM_LOG_MOE
