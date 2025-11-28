@@ -1,0 +1,11 @@
+AI Usage Log (ChatGPT – GPT-5.1 Thinking)
+
+Asked for explanation about vLLM, MoE, Router.
+
+Ideas on where to hook a MoE logger into vLLMs FusedMoE path.
+
+Got help interpreting CUDA graph errors and decided to run with enforce_eager=True so logging (.detach().cpu().tolist()) is safe.
+
+Used AI to draft a small inspect_moe_layers.py script to find which transformer layers are MoE for Qwen/Qwen1.5-MoE-A2.7B-Chat.
+
+All code was implemented, run, and verified by me in the Linux with RunPod (GPU set up) environment.
