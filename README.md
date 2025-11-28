@@ -55,7 +55,12 @@ python plot_expert_hist.py
 ```
 
 ## Results
+Here is the logging result for default MoE layer 0.
 ![Expert usage histogram](Layer_Experts_Plots/expert_hist_layer0.png)
+Top-3 experts by selection frequency:
+  - Expert 58: 8792 selections (17.17% of all expert uses)
+  - Expert 7: 8758 selections (17.10% of all expert uses)
+  - Expert 43: 8744 selections (17.07% of all expert uses)
 
 
 
