@@ -37,3 +37,23 @@ Baseline run (no logging, compiled kernels)
 unset VLLM_LOG_MOE
 python run_generate.py
 ```
+
+Logging run (with MoE routes), specify the logging MoE layer, where all layer is MoE layer for **Qwen1.5-MoE-A2.7B-Chat**
+```bash
+export VLLM_MOE_LAYER=12
+export VLLM_LOG_MOE=moe_layer12.jsonl
+export VLLM_MOE_MODEL_ID="Qwen/Qwen1.5-MoE-A2.7B-Chat"
+export VLLM_MOE_SEED=1234
+
+python run_generate.py
+```
+
+Plot expert histogram, visualizing where the router sends work inside the MoE layer.
+```bash
+python plot_expert_hist.py
+# e.g. output: expert_hist_layer12.png
+```
+
+
+
+
