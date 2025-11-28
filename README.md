@@ -31,14 +31,15 @@ python make_prompts.py
 ```
 
 ### Run
-* Baseline run (no logging, compiled kernels)
+**Baseline run (no logging, compiled kernels)**
 ```bash
 unset VLLM_LOG_MOE
 python run_generate.py
 ```
 'time.json' is created, recording generation walltime & number of tokens 
 
-* Logging run (with MoE routes), specify the logging MoE layer, where all layer (0 - 23) is MoE layer for **Qwen1.5-MoE-A2.7B-Chat**
+**Logging run (with MoE routes)**
+Specify the logging MoE layer (default 0), where all layer (0 - 23) is MoE layer for **Qwen1.5-MoE-A2.7B-Chat**
 ```bash
 export VLLM_MOE_LAYER=12
 export VLLM_LOG_MOE=moe_layer12.jsonl
