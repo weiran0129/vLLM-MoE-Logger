@@ -57,7 +57,7 @@ python plot_expert_hist.py
 ## Results
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/vLLM-MoE-Logger/Layer_Experts_Plots/expert_hist_layer0.png">
+    <source srcset="https://raw.githubusercontent.com/vLLM-MoE-Logger/Layer_Experts_Plots/expert_hist_layer0.png">
     <img alt="vLLM" src="https://raw.githubusercontent.com/vLLM-MoE-Logger/Layer_Experts_Plots/expert_hist_layer0.png" width=55%>
   </picture>
 </p>
