@@ -17,7 +17,7 @@ Prompt Dataset: Use GSM8K test split, first 25 questions [Huggin Face](https://h
 ## Getting Started
 OS: Linux/GPU: NVIDIA A100 80GB PCIe
 
-vLLM installation
+### vLLM installation
 ```bash
 git clone https://github.com/vllm-project/vllm.git
 cd vllm
@@ -25,19 +25,20 @@ export VLLM_USE_PRECOMPILED=1
 pip install -e .
 ```
 
-Data preparation
+### Data preparation
 ```bash
 python make_prompts.py
 ```
 
-Baseline run (no logging, compiled kernels)
+### Run
+* Baseline run (no logging, compiled kernels)
 ```bash
 unset VLLM_LOG_MOE
 python run_generate.py
 ```
 'time.json' is created, recording generation walltime & number of tokens 
 
-Logging run (with MoE routes), specify the logging MoE layer, where all layer (0 - 23) is MoE layer for **Qwen1.5-MoE-A2.7B-Chat**
+* Logging run (with MoE routes), specify the logging MoE layer, where all layer (0 - 23) is MoE layer for **Qwen1.5-MoE-A2.7B-Chat**
 ```bash
 export VLLM_MOE_LAYER=12
 export VLLM_LOG_MOE=moe_layer12.jsonl
@@ -48,7 +49,8 @@ python run_generate.py
 ```
 'moe_routes.jsonl' (default layer 0) / 'moe_layer12.jsonl' (Other layers) record the per-token expert routing decisions for a single MoE layer, where the first line is a meta header that stores run configuration (model ID, vLLM/torch versions, device, seed, MoE layer , and the router’s top-k), every subsequent line is a route record for one generated token at that layer
 
-Plot expert histogram, visualizing where the router sends work inside the MoE layer.
+### Plot expert histogram
+Visualizing where the router sends work inside the MoE layer.
 ```bash
 python plot_expert_hist.py
 # e.g. output: expert_hist_layer12.png
