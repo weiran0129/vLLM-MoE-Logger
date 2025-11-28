@@ -1,0 +1,10 @@
+{
+  "no_log": {
+    "wall_time_sec": 2.725264549255371,
+    "tokens_generated": 2879
+  },
+  "log": {
+    "wall_time_sec": 5.488518714904785,
+    "tokens_generated": 2912
+  }
+}
